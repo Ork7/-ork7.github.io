@@ -5,13 +5,7 @@
 <title>Седьмой Орк</title>
 <meta charset="utf-8">
 <style type="text/css">
-#blink {
--webkit-animation-name: blink; 
--webkit-animation-iteration-count: infinite; 
--webkit-animation-timing-function: cubic-bezier(1.0,0,0,1.0);
--webkit-animation-duration: 1s;
-}
-  @font-face {
+ @font-face {
     font-family: Terminal; 
     src: url("Terminal.ttf");}
   .wrapper {
@@ -25,6 +19,20 @@
 </style>
 </head>
 <body>
+<script type="text/javascript">
+      function blink() {
+        var blinks = document.getElementsByTagName('blink');
+        for (var i = blinks.length - 1; i >= 0; i--) {
+          var s = blinks[i];
+          s.style.visibility = (s.style.visibility === 'visible') ? 'hidden' : 'visible';
+        }
+        window.setTimeout(blink, 1000);
+      }
+      if (document.addEventListener) document.addEventListener("DOMContentLoaded", blink, false);
+      else if (window.addEventListener) window.addEventListener("load", blink, false);
+      else if (window.attachEvent) window.attachEvent("onload", blink);
+      else window.onload = blink;
+    </script>
 <div class="wrapper" align="center">
    <p>*************************************************</p>
   <h3>Страничка начинающего пайтониста на github.com.</h3>
@@ -32,7 +40,7 @@
   <p>Когда-то писал на ассемблере PDP-11 (DEC), Z80, x86. Золотое время.
    Глаза горели, кодил по ночам. FIDO, становление интернета,
    верстка простых сайтов и кардинальная смена области деятельности.
-    И снова разворот к программированию<b id="blink">_</b></p>
+    И снова разворот к программированию<blink>_</blink></p>
   </div>
 </body>
 </html>
